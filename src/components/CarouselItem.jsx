@@ -11,7 +11,7 @@ import removeIcon from '../assets/static/google-icon.png';
 
 const CarouselItem = ( props ) => {
     
-    const { id, title, poster_path, release_date, vote_average, isList } = props;
+    const { id, title, poster_path, backdrop_path, release_date, vote_average, isList } = props;
     
     const handleSetFavorite = () => {
         props.setFavorite({

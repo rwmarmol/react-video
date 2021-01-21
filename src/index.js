@@ -9,6 +9,7 @@ const initialState = {
     isLogedIn: false,
     wilcho: 'WILCHO!!',
     myList: [],
+    user: [],
 };
 
 const store = createStore(reducer, initialState);
