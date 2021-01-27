@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
+import { connect } from 'react-redux';
 import Search from '../components/Search';
+import FeaturedMovie from '../components/FeaturedMovie';
 import Carousel from '../components/Carousel';
 import Categories from '../components/Categories';
 import CarouselItem from '../components/CarouselItem';
-import Footer from '../components/Footer';
 import useInitialState from '../hooks/useInitialState';
-import '../assets/styles/App.scss';
 
-const App = () => {
+const Home = ({ isLogedIn, wilcho, myList, user }) => {
     
     const popularMovies = useInitialState('discover/movie?sort_by=popularity.desc');
     const highestRatedMovies = useInitialState('discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc');
@@ -18,10 +17,25 @@ const App = () => {
     const comedyMovies = useInitialState('discover/movie?with_genres=35&primary_release_year=2020');
     const horrorMovies = useInitialState('discover/movie?with_genres=53&primary_release_year=2020');
 
+    const randomMovie = 0 + Math.floor((19 - 0) * Math.random());
+
     return(
-      <div className="App">
-        <Header />
-        <Search />
+      <>
+        
+        <FeaturedMovie {...popularMovies.results[randomMovie]} /> 
+        
+        { myList.length > 0 &&
+            <Categories title="Favorite Movies">
+                <Carousel>
+                    { myList.map(item => 
+                        <CarouselItem 
+                            key={item.id} 
+                            {...item}
+                            isList />
+                    )}
+                </Carousel>
+            </Categories>
+        }
 
         <Categories title="Popular Movies">
           <Carousel>
@@ -70,10 +84,17 @@ const App = () => {
            )}
           </Carousel>
         </Categories>
-       
-        <Footer/>
-      </div>
+
+      </>
     )
 };
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        isLogedIn: state.isLogedIn,
+        wilcho: state.wilcho,
+        myList: state.myList,
+    }
+};
+
+export default connect(mapStateToProps, null)(Home);
