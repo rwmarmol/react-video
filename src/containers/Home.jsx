@@ -6,7 +6,6 @@ import Carousel from '../components/Carousel';
 import Categories from '../components/Categories';
 import CarouselItem from '../components/CarouselItem';
 import useInitialState from '../hooks/useInitialState';
-import '../assets/styles/App.scss';
 
 const Home = ({ isLogedIn, wilcho, myList, user }) => {
     
@@ -18,16 +17,13 @@ const Home = ({ isLogedIn, wilcho, myList, user }) => {
     const comedyMovies = useInitialState('discover/movie?with_genres=35&primary_release_year=2020');
     const horrorMovies = useInitialState('discover/movie?with_genres=53&primary_release_year=2020');
 
+    const randomMovie = 0 + Math.floor((19 - 0) * Math.random());
+
     return(
       <>
-        <Search />
-        <h1 style={{background: "#74C3E1", padding: "20px"}}>HOLA { wilcho } y USer { user }</h1>
         
-
-
-        <FeaturedMovie movie="Hola soy la movie" />    
+        <FeaturedMovie {...popularMovies.results[randomMovie]} /> 
         
-
         { myList.length > 0 &&
             <Categories title="Favorite Movies">
                 <Carousel>

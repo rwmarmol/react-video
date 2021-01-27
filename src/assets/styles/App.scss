@@ -2,9 +2,9 @@
 @import "./Media.scss";
 
 body {
-  margin: 0;
-  font-family: $theme-font;
-  background: $theme-background;
+  font-family: $theme-font !important;
+  background: $theme-background !important;
+  color: $theme-font-color !important;
 }
 
 * {

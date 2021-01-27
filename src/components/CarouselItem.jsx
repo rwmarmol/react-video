@@ -24,28 +24,28 @@ const CarouselItem = ( props ) => {
     };
 
     return (
-        <div className="carousel-item">
-            <img className="carousel-item__img" src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt=""></img>
-            <div className="carousel-item__details">
+        <div className="custom-carousel-item">
+            <img className="custom-carousel-item__img" src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt=""></img>
+            <div className="custom-carousel-item__details">
                 <div>
-                    <img className="carousel-item__details--img" src={playIcon} alt="Play Icon"></img>
+                    <img className="custom-carousel-item__details--img" src={playIcon} alt="Play Icon"></img>
                     
                     {isList ?     
                         <img 
-                            className="carousel-item__details--img" 
+                            className="custom-carousel-item__details--img" 
                             src={removeIcon} alt="Remove Icon"
                             onClick={ () => handleDeleteFavorite(id) }>
                         </img> : 
      
                         <img 
-                            className="carousel-item__details--img" 
+                            className="custom-carousel-item__details--img" 
                             src={plusIcon} alt="Plus Icon"
                             onClick={handleSetFavorite}>
                         </img>
                     }
                 </div>
-                <h2 className="carousel-item__details--title">{title}</h2>
-                <p className="carousel-item__details--subtitle">{new Date(release_date).getFullYear()} <span className="votes"> {vote_average} / 10 Score</span></p>
+                <h6 className="custom-carousel-item__details--title text-wrap">{title}</h6>
+                <p className="custom-carousel-item__details--subtitle">{new Date(release_date).getFullYear()} <span className="votes"> {vote_average} / 10 Score</span></p>
             </div>
         </div>
     );

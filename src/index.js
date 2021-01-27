@@ -4,12 +4,15 @@ import App from './routes/App';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducers';
+import './assets/styles/App.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const initialState = {
     isLogedIn: false,
     wilcho: 'WILCHO!!',
     myList: [],
-    user: [],
+    user: [],    
 };
 
 const store = createStore(reducer, initialState);
