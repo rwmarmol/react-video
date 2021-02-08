@@ -89,12 +89,8 @@ const Home = ({ isLogedIn, wilcho, myList, user }) => {
     )
 };
 
-const mapStateToProps = state => {
-    return {
-        isLogedIn: state.isLogedIn,
-        wilcho: state.wilcho,
-        myList: state.myList,
-    }
+const mapStateToProps = (reducers) => {
+    return reducers.globalReducer;
 };
 
 export default connect(mapStateToProps, null)(Home);

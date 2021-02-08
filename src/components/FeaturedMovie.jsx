@@ -11,9 +11,9 @@ const FeaturedMovie = ( props ) => {
            <div className="featured-movie-info row m-0 p-4 py-md-5 mb-4 align-items-end">
                 <div className="col-md-6 px-0">
                     <h1 className="display-2">{title}</h1>
-                    <h6 className="text-success"><span class="badge rounded-pill bg-dark">{(vote_average * 100)/10}% Match</span></h6>
+                    <h6 className="text-success"><span className="badge rounded-pill bg-dark">{(vote_average * 100)/10}% Match</span></h6>
                     <p className="lead my-3 featured-movie-info__overview">{overview}</p>
-                    <button type="button" className="btn btn-light btn-lg me-2"><i class="bi-alarm"></i>Large button</button>
+                    <button type="button" className="btn btn-light btn-lg me-2"><i className="bi-alarm"></i>Large button</button>
                     <button type="button" className="btn btn-secondary btn-lg">Large button</button>
                 </div>
             </div>
